@@ -49,15 +49,15 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
                        sh "docker build -t uptime ."
-                       sh "docker tag uptime sevenajay/uptime:latest "
-                       sh "docker push sevenajay/uptime:latest "
+                       sh "docker tag uptime jinesh1893/uptime:latest "
+                       sh "docker push jinesh1893/uptime:latest "
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image sevenajay/uptime:latest > trivy.json" 
+                sh "trivy image jinesh1893/uptime:latest > trivy.json" 
             }
         }
         stage ("Remove container") {
@@ -68,7 +68,7 @@ pipeline{
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name uptime -v /var/run/docker.sock:/var/run/docker.sock -p 3001:3001 sevenajay/uptime:latest'
+                sh 'docker run -d --name uptime -v /var/run/docker.sock:/var/run/docker.sock -p 3010:3010 sevenajay/uptime:latest'
             }
         }
     }
