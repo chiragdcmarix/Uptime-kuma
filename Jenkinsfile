@@ -10,7 +10,7 @@ pipeline{
     stages {
         stage ("Git Pull"){
             steps{
-                git branch: 'main', url: 'https://github.com/Aj7Ay/Uptime-kuma.git'
+                git branch: 'main', url: 'https://github.com/chiragdcmarix/Uptime-kuma.git'
             }
         }
         stage('Install Dependencies') {
