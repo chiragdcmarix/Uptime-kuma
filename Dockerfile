@@ -16,5 +16,5 @@ RUN if [ -d "./dist" ]; then cp -r ./dist ./dist-backup && rm -rf ./dist; fi
 
 #Install dist
 RUN npm run download-dist
-EXPOSE 3001
+EXPOSE 3010
 CMD ["node", "server/server.js"]
